@@ -1,0 +1,52 @@
+@startuml
+
+title Diagrama Tienda
+
+class Producto {
++idproducto: int
++marca: String
++articulo: String
+
+-reponer()
+-vender()
+-retirar()
+}
+
+class Negocio{
++idnegocio: int
++nombre: String
++direccion: String
++tipo: String
++productos: Producto
++empleado: Empleado
+
+-abrir()
+-cerrar()
+}
+
+class Empleado{
++idempleado: int
++nombre: String
++turno: String
++dni: int
+
+-entrar(horario)
+-salida(horario)
+
+}
+
+class Contacto{
++idcontacto: int
++numero: int
++mail: String
++red: String
+
+-contactar(medio)
+}
+
+Negocio"1" --> "1..*" "Producto"
+Negocio"1" --> "1..8" "Empleado"
+Empleado "1" o-- "1" "Contacto"
+
+
+@enduml
